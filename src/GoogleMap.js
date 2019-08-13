@@ -46,6 +46,7 @@ class SimpleMap extends Component {
   };
 
   render() {
+    let key = 0;
     let locations = [
       { lat: 44.414, lng: -68.5867, msg: "loc1" },
       { lat: 44.415, lng: -68.5867, msg: "loc2" }
@@ -55,13 +56,18 @@ class SimpleMap extends Component {
       <div style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: "ssAIzaSyAEBRCMAydszvRzOrtAkhOZuSAqApW_xFQ"
+            key: "AIzaSyAEBRCMAydszvRzOrtAkhOZuSAqApW_xFQ"
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
           {locations.map(loc => (
-            <AnyReactComponent lat={loc.lat} lng={loc.lng} text={loc.msg} />
+            <AnyReactComponent
+              key={key++}
+              lat={loc.lat}
+              lng={loc.lng}
+              text={loc.msg}
+            />
           ))}
         </GoogleMapReact>
       </div>
